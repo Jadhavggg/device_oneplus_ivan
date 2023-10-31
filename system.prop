@@ -1,3 +1,9 @@
+# blur
+ro.sf.blurs_are_expensive=1
+ro.surface_flinger.supports_background_blur=1
+debug.sf.latch_unsignaled=1
+debug.sf.disable_backpressure=1
+
 # Charger
 ro.charger.enable_suspend=true
 
@@ -8,3 +14,4 @@ persist.dbg.wfc_avail_ovr=1
 
 # Zygote
 zygote.critical_window.minute=10
+
