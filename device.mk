@@ -57,6 +57,10 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.6.vendor \
     android.hardware.camera.provider@2.6.vendor
 
+# Carrier Config Overlays
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlay
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
@@ -166,6 +170,20 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(DEVICE_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-aosp
+
+# MTK IMS Overlays
+PRODUCT_PACKAGES += \
+    mtk-ims \
+    mtk-ims-telephony
+
+# MTK InCallService
+PRODUCT_PACKAGES += \
+    MtkInCallService
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -319,6 +337,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
+
+# Wi-Fi Overlays
+PRODUCT_PACKAGES += \
+    TetheringConfigOverlay \
+    WifiOverlay
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/oneplus/ivan/ivan-vendor.mk)
